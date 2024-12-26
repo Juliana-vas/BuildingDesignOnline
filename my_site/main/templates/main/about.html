@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BuildingDesignOnline</title>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    ul[role='list'], ol[role='list'] {
+      list-style: none;
+    }
+
+    html:focus-within {
+      scroll-behavior: smooth;
+    }
+
+    a:not([class]) {
+      text-decoration-skip-ink: auto;
+    }
+
+    img, picture, svg, video, canvas {
+      max-width: 100%;
+      height: auto;
+      vertical-align: middle;
+      font-style: italic;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    input, button, textarea, select {
+      font: inherit;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html:focus-within {
+        scroll-behavior: auto;
+      }
+
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+        transition: none;
+      }
+    }
+
+    body, html {
+      height: 100%;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Inter, serif;
+      font-weight: 400;
+    }
+
+    .wrapper {
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+
+    .h1 {
+      font-size: 64px;
+      font-weight: 700;
+    }
+
+    .h2 {
+      font-size: 32px;
+      font-weight: 600;
+    }
+
+    .text {
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 30px;
+    }
+
+    .input {
+      width: 100%;
+      background: none;
+      padding: 12px 16px;
+      border: 1px solid #E0E0E0;
+      border-radius: 8px;
+    }
+
+    .button {
+      cursor: pointer;
+      display: block;
+      width: fit-content;
+      font-size: 20px;
+      font-weight: 500;
+      color: #D7E9F9;
+      text-align: center;
+      text-decoration: none;
+      padding: 16px 32px;
+      background-color: #000;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+<div style="min-height: 100vh; background-color: #D7E9F9; padding-top: 56px; padding-bottom: 240px">
+  <div class="wrapper">
+    <a class="button" style="margin-left: auto; margin-bottom: 140px" href="index.html">На главную</a>
+
+    <div style="display: flex; justify-content: space-between">
+      <div style="flex: 0.45">
+        <div class="h1">О нас</div>
+        <div class="text" style="margin-top: 16px">Данный сайт создан Васильевой Ю. С. и Краснянской А. С., ученицами 10 класса  ГБОУ Школа №654 имени А. Д. Фридмана.</div>
+        <div class="h2" style="margin: 32px 0">Связаться с нами</div>
+
+        <div style="display: flex; justify-content: space-between">
+          <div style="flex: 0.48">
+            <div style="font-weight: 600; margin-bottom: 8px">Имя</div>
+            <input class="input" type="text" placeholder="Jane">
+          </div>
+
+          <div style="flex: 0.48">
+            <div style="font-weight: 600; margin-bottom: 8px">Фамилия</div>
+            <input class="input"  type="text" placeholder="Smitherton">
+          </div>
+        </div>
+
+        <div style="font-weight: 600; margin-top: 32px; margin-bottom: 8px">Адрес электронной почты</div>
+        <input class="input" type="text" placeholder="email@janesfakedomain.net">
+
+        <div style="font-weight: 600; margin-top: 32px; margin-bottom: 8px">Ваше сообщение</div>
+        <textarea class="input" rows="7" placeholder="Введите свой вопрос или сообщение"></textarea>
+
+        <div class="button" style="width: 100%; margin-top: 48px">Отправить</div>
+      </div>
+
+      <div style="flex: 0.45">
+        <img
+          style="width: 100%"
+          src="https://s3-alpha-sig.figma.com/img/f1e2/eb26/5434d19b7fbdce5c8649b53b415f149f?Expires=1734912000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=fbM-GnERuIaNvTp9o7eZzuFTIFJod2CNQcdXyCGWvGSf-JEAR5Qiev9htUsM-u0oxRoTiJKPzLzLcovXi1qxmnI7ccDS0NkrsMhgVgsyydd~vNSyk7z8LBB5ViLXV3Qt4Udisyxy179pd1dV7YfID4139flqSOU1Lgyy4L3kKOkhUyMdw3o~OPGuglKQ8CPic6zmzlXvDEg7k-~joJf-wjlhxB9r2sR2CBN3fg94KqHx9HEOuW65Z2xXbU227QwzN7bQXAXZdz6Lls2pyDaAbc6bBosEmmqQOe9ATY9878Il1aQ726vgQSpOcURzkZM-gVgVn~zenkkTymLZtLcENQ__"
+          alt="BuildingDesignOnline.jpeg"
+        >
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BuildingDesignOnline</title>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    ul[role='list'], ol[role='list'] {
+      list-style: none;
+    }
+
+    html:focus-within {
+      scroll-behavior: smooth;
+    }
+
+    a:not([class]) {
+      text-decoration-skip-ink: auto;
+    }
+
+    img, picture, svg, video, canvas {
+      max-width: 100%;
+      height: auto;
+      vertical-align: middle;
+      font-style: italic;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    input, button, textarea, select {
+      font: inherit;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html:focus-within {
+        scroll-behavior: auto;
+      }
+
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+        transition: none;
+      }
+    }
+
+    body, html {
+      height: 100%;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Inter, serif;
+      font-weight: 400;
+    }
+
+    .wrapper {
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+
+    .h2 {
+      font-size: 25px;
+      font-weight: 600;
+    }
+
+    .h3 {
+      font-size: 20px;
+      font-weight: 500;
+    }
+
+    .button {
+      display: block;
+      width: fit-content;
+      font-size: 24px;
+      font-weight: 500;
+      color: #D7E9F9;
+      text-decoration: none;
+      padding: 20px 32px;
+      background-color: #000;
+      border-radius: 8px;
+    }
+
+    .house {
+      position: relative;
+      width: 400px;
+      height: auto;
+      margin: 150px auto 0 auto;
+    }
+
+    .floor {
+      display: flex;
+      justify-content: space-between;
+      height: 200px;
+      position: relative;
+      align-items: flex-end;
+      background-color: #554d4e;
+    }
+
+    .roof {
+      height: 100px;
+      position: relative;
+      background: transparent;
+    }
+
+    .roof__triangle {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: -50px;
+      height: 75px;
+      width: 75px;
+      margin: 0 auto;
+      border-left: 75px solid #9d7260;
+      border-right: 75px solid transparent;
+      border-bottom: 75px solid transparent;
+      border-top: 75px solid transparent;
+      transform-origin: 50% 50%;
+      transform: rotate(-90deg);
+      z-index: 1;
+    }
+
+    .roof__triangle:after {
+      position: absolute;
+      top: -65px;
+      left: -75px;
+      content: " ";
+      height: 65px;
+      width: 65px;
+      border-left: 65px solid #815a49;
+      border-right: 65px solid transparent;
+      border-bottom: 65px solid transparent;
+      border-top: 65px solid transparent;
+    }
+
+    .roof__square {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 65px;
+      width: 1.5rem;
+      height: 1.5rem;
+      background: #fff;
+      margin: 0 auto;
+      z-index: 3;
+      -webkit-box-shadow: -3px 3px 1px 1px rgba(0, 0, 0, 0.3);
+      box-shadow: -3px 3px 1px 1px rgba(0, 0, 0, 0.3);
+    }
+
+    .roof__chimney {
+      position: absolute;
+      right: 70px;
+      top: 20px;
+      height: 80px;
+      width: 25px;
+      background: #554d4e;
+      z-index: 0;
+    }
+
+    .roof__chimney:after {
+      content: " ";
+      position: absolute;
+      top: 0;
+      left: -1px;
+      height: 5px;
+      width: 27px;
+      z-index: 1;
+      background: #494144;
+    }
+
+    .divider {
+      display: grid;
+      grid-template-rows: 10px 5px;
+      grid-gap: 1rem;
+      background: #554d4e;
+    }
+
+    .divider__top {
+      width: 100%;
+      height: 10px;
+      background: #fff;
+      align-self: start;
+      -webkit-box-shadow: 0 3px 1px 0px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 3px 1px 0px rgba(0, 0, 0, 0.3);
+    }
+
+    .divider__btm {
+      width: 100%;
+      height: 5px;
+      background: #fff;
+      align-self: start;
+      -webkit-box-shadow: 0 2px 1px 0px rgba(0, 0, 0, 0.3);
+    }
+
+    .door {
+      width: 120px;
+      height: 180px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      grid-gap: 1rem;
+      padding: 1.5rem;
+      background: #fff;
+    }
+
+    .window {
+      width: 90px;
+      height: 90px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 0 0.5rem;
+      padding: 0.5rem;
+      margin: 30px;
+      background: #fff;
+    }
+
+    .window__pane {
+      align-self: stretch;
+      background: #ccc;
+    }
+
+    .shadow {
+      -webkit-box-shadow: -1px 3px 1px 3px rgba(0, 0, 0, 0.1);
+      box-shadow: -1px 3px 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .controls {
+      margin-top: 10px;
+      padding: 30px 15px;
+      background-color: #EEFFFF;
+    }
+  </style>
+</head>
+<body>
+<div style="background-color: #D7E9F9; padding-top: 56px; padding-bottom: 187px">
+  <div class="wrapper">
+    <a class="button" style="margin-left: auto; margin-bottom: 48px" href="index.html">На главную</a>
+
+    <div>
+      <div class="house">
+        <div class="roof">
+          <div class="roof__triangle"></div>
+          <div class="roof__square"></div>
+          <div class="roof__chimney"></div>
+        </div>
+        <div class="divider">
+          <div class="divider__top"></div>
+          <div class="divider__btm"></div>
+        </div>
+        <div id="roof"></div>
+        <div class="floor" id="floor3">
+          <div class="window shadow" id="window3-1">
+            <div class="window__pane"></div>
+            <div class="window__pane"></div>
+          </div>
+          <div class="window shadow" id="window3-2">
+            <div class="window__pane"></div>
+            <div class="window__pane"></div>
+          </div>
+        </div>
+        <div class="floor" id="floor2">
+          <div class="window shadow" id="window2-1">
+            <div class="window__pane"></div>
+            <div class="window__pane"></div>
+          </div>
+          <div class="window shadow" id="window2-2">
+            <div class="window__pane"></div>
+            <div class="window__pane"></div>
+          </div>
+        </div>
+        <div class="floor" id="floor1">
+          <div class="window shadow" id="window1-1">
+            <div class="window__pane"></div>
+            <div class="window__pane"></div>
+          </div>
+          <div class="door">
+            <div class="window__pane"></div>
+            <div class="window__pane"></div>
+            <div class="window__pane"></div>
+            <div class="window__pane"></div>
+          </div>
+          <div class="window shadow" id="window1-2">
+            <div class="window__pane"></div>
+            <div class="window__pane"></div>
+          </div>
+        </div>
+      </div>
+
+      <button style="text-align: center; margin: 100px 0 30px;" onclick="addFloor()">Добавить этаж</button>
+
+      <div id="controls-wrapper">
+        <div class="controls" id="control1">
+          <h3>Этаж 1</h3>
+          Ширина окон: <input type="number" value="90" min="60" max="180" id="width1-1">
+          Высота окон: <input type="number" value="90" min="60" max="120" id="height1-1">
+          <button onclick="updateWindow('window1-1', 'window1-2', 'width1-1', 'height1-1')">Обновить</button>
+          <button disabled>Удалить этаж</button>
+        </div>
+
+        <div class="controls" id="control2">
+          <h3>Этаж 2</h3>
+          Ширина окон: <input type="number" value="90" min="60" max="180" id="width2-1">
+          Высота окон: <input type="number" value="90" min="60" max="120" id="height2-1">
+          <button onclick="updateWindow('window2-1', 'window2-2', 'width2-1', 'height2-1')">Обновить</button>
+          <button onclick="removeFloor(2)">Удалить этаж</button>
+        </div>
+
+        <div class="controls" id="control3">
+          <h3>Этаж 3</h3>
+          Ширина окон: <input type="number" value="90" min="60" max="180" id="width3-1">
+          Высота окон: <input type="number" value="90" min="60" max="120" id="height3-1">
+          <button onclick="updateWindow('window3-1', 'window3-2', 'width3-1', 'height3-1')">Обновить</button>
+          <button onclick="removeFloor(3)">Удалить этаж</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  let floorCount = 3;
+
+  function updateWindow(windowFirstId, windowSecondId, widthId, heightId) {
+    const width = document.getElementById(widthId).value;
+    const height = document.getElementById(heightId).value;
+    const windowFirstElement = document.getElementById(windowFirstId);
+    const windowSecondElement = document.getElementById(windowSecondId);
+
+    windowFirstElement.style.width = width + 'px';
+    windowFirstElement.style.height = height + 'px';
+    windowSecondElement.style.width = width + 'px';
+    windowSecondElement.style.height = height + 'px';
+  }
+
+  function removeFloor(floorNumber) {
+    const floor = document.getElementById('floor' + floorNumber);
+    const control = document.getElementById('control' + floorNumber);
+    floor.remove();
+    control.remove();
+  }
+
+  function addFloor() {
+    floorCount++;
+
+    const newFloor = document.createElement('div');
+    newFloor.className = 'floor';
+    newFloor.id = 'floor' + floorCount;
+
+    const windowPane1 = document.createElement('div');
+    windowPane1.className = 'window__pane';
+    const windowPane2 = document.createElement('div');
+    windowPane2.className = 'window__pane';
+    const windowPane3 = document.createElement('div');
+    windowPane3.className = 'window__pane';
+    const windowPane4 = document.createElement('div');
+    windowPane4.className = 'window__pane';
+
+    const newWindow1 = document.createElement('div');
+    newWindow1.className = 'window';
+    newWindow1.id = 'window' + floorCount + '-1';
+
+    newWindow1.appendChild(windowPane1);
+    newWindow1.appendChild(windowPane2);
+
+    const newWindow2 = document.createElement('div');
+    newWindow2.className = 'window';
+    newWindow2.id = 'window' + floorCount + '-2';
+
+    newWindow2.appendChild(windowPane3);
+    newWindow2.appendChild(windowPane4);
+
+    newFloor.appendChild(newWindow1);
+    newFloor.appendChild(newWindow2);
+
+    const roofEl = document.getElementById('roof');
+
+    roofEl.parentNode.insertBefore(newFloor, roofEl.nextSibling);
+
+    const newControl = document.createElement('div');
+    newControl.className = 'controls';
+    newControl.id = 'control' + floorCount;
+    newControl.innerHTML = `
+            <h3>Этаж ${floorCount}</h3>
+            Ширина окон: <input type="number" value="90" min="60" max="180" id="width${floorCount}-1">
+            Высота окон: <input type="number" value="90" min="60" max="120" id="height${floorCount}-1">
+            <button onclick="updateWindow('window${floorCount}-1', 'window${floorCount}-2', 'width${floorCount}-1', 'height${floorCount}-1')">Обновить</button>
+            <button onclick="removeFloor(${floorCount})">Удалить этаж</button>
+        `;
+    document.getElementById('controls-wrapper').appendChild(newControl);
+  }
+</script>
+</body>
+</html>

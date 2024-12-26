@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BuildingDesignOnline</title>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    ul[role='list'], ol[role='list'] {
+      list-style: none;
+    }
+
+    html:focus-within {
+      scroll-behavior: smooth;
+    }
+
+    a:not([class]) {
+      text-decoration-skip-ink: auto;
+    }
+
+    img, picture, svg, video, canvas {
+      max-width: 100%;
+      height: auto;
+      vertical-align: middle;
+      font-style: italic;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    input, button, textarea, select {
+      font: inherit;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html:focus-within {
+        scroll-behavior: auto;
+      }
+
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+        transition: none;
+      }
+    }
+
+    body, html {
+      height: 100%;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Inter, serif;
+      font-weight: 400;
+    }
+
+    .wrapper {
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+
+    .h1 {
+      font-size: 64px;
+      font-weight: 700;
+    }
+
+    .h2 {
+      font-size: 24px;
+      color: #0A0808BF;
+    }
+
+    .button {
+      display: block;
+      width: fit-content;
+      font-size: 24px;
+      font-weight: 500;
+      color: #D7E9F9;
+      text-decoration: none;
+      padding: 20px 32px;
+      background-color: #000;
+      border-radius: 8px;
+    }
+
+    .button.outline {
+      color: #000;
+      background-color: #E6E6E6;
+      box-shadow: 0px 1px 2px 0px #0000000D;
+    }
+  </style>
+</head>
+<body>
+<div style="background-color: #D7E9F9; padding-bottom: 108px">
+  <div class="wrapper" style="padding-top: 112px">
+    <div style="background-color: #BFDBFF; padding: 24px; border-top-left-radius: 12px; border-top-right-radius: 12px">
+      <div class="h1">Виртуальное проектирование зданий:</div>
+      <div class="h2" style="margin-top: 24px; margin-bottom: 126px">Онлайн программа проектирования зданий</div>
+    </div>
+    <img
+      style="width: 100%; border-bottom-left-radius: 12px; border-bottom-right-radius: 12px"
+      src="https://s3-alpha-sig.figma.com/img/d116/1a60/09e25a1cca218f54ecd99a134f085f10?Expires=1734912000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=ebPTHSJ3pcn35ACXorgnhdB7MiBv3p2~5w~7z7nH-CCQtxV08EH68bEdeJeZH~Gk5NSpzabcD5ipowKasr2nwhlL6ONxj2kln3zTEJQEA21kfQUAWBYFk3OFnZ-vMCfnYHRDsqKWG17HqCwVuwcoV7kkTtc6-K0vMq95HjeCByvUcWA2oiS1PyG06LpWejoeD4viJvrdqXHhtwf2guTz7OoMyezJsi1878-BJWQocmJutQOLWnPWSrxvgNzLPoU~kRvpf13Fr2h4h1oY9~c0fWIGtfBGH~aIF3ZM9-7t9MJVz4UVizUk0nRNT4bkxnxdqnAwXZtdpbP0~mJM~AlldQ__"
+      alt="BuildingDesignOnline.jpeg"
+    >
+  </div>
+
+  <div style="margin-top: 124px; margin-bottom: 48px; background: linear-gradient(360deg, #15EDBA 0%, #75C7B4 98.5%); border-radius: 54px">
+    <div class="wrapper" style="padding: 24px 0">
+      <div class="h1" style="margin-bottom: 20px">Макет</div>
+
+
+        <div style="flex: 0.45">
+          <img
+            style="width: 100%; height: 465px; border-radius: 8px"
+            src="https://s3-alpha-sig.figma.com/img/3ac5/61c4/7dbd424b863193f42d82fbc33464eccd?Expires=1734912000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=SPkIx5ZynFgLQVlOgVN7BBIcOpEsdWZkBemlI57zl~dai0Ay-axD3z1gPULXh99cp6SaOoYWMywRj-1d4qFMPHwq3BEdpQJOh3BYSew~h3HJEY8wIV7Qry8YtejRgEIBo51WhF93DHxAgiFj-541DJScE9rDo~~~O2KOfOIqcvExqtFIjrPq8BJzu94e-nWbSoWQa3G5jjQxEpW7iTJ-ZuQ9TPDy-BTAcv~5bQYjWajM2OLvQJMSxF7VLkqY~w3vtBNmUh0XJv6VvCTNrKAs6ze9oH3qqZQCfQJGD9XhfISDRTlaSh-vFdqwsdq2Jio3Y0CAGNTcJtZHfDSWcY878w__"
+            alt="BuildingDesignOnline.jpeg"
+          >
+          <a class="button" style="margin-top: 24px" href="building.html">Здания</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="background-color: #F7F7F7">
+    <div class="wrapper" style="padding: 54px 0">
+      <a class="button outline" style="margin-left: auto" href="about.html">
+        Задать вопрос
+      </a>
+    </div>
+  </div>
+</div>
+</body>
+</html>
